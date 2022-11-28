@@ -2,12 +2,9 @@
 /// <reference types="cypress-xpath"/>
 
 describe('Validate WebdriverUni homepage links', () => {
-    beforeEach(() => {
-        cy.visit('http://www.webdriveruniversity.com/');
-        cy.document().should("have.property", 'charset').and('eq', "UTF-8")
-    });
 
     it('Confirm Links are redirected to the correct pages', () => {
+        cy.visit('http://www.webdriveruniversity.com/');
         //contact us
         cy.get('#contact-us').invoke('removeAttr', 'target').click();
         cy.url().should("include", 'contactus.html');
@@ -28,7 +25,7 @@ describe('Validate WebdriverUni homepage links', () => {
         cy.get('#to-do-list').invoke('removeAttr', 'target').click();
         cy.url().should("include", 'To-Do-List/index.html');
         cy.go('back');
-        
+
 
     });
 });

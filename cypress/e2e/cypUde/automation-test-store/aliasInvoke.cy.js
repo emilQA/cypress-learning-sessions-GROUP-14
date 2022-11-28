@@ -29,7 +29,7 @@ describe('Iterating over the elements', () => {
                 itemTotalPrice += Number(itemPrice[i])
             }
             itemsTotal += itemTotalPrice
-            cy.log('Non sale item price is ' + itemTotalPrice)
+            cy.log('Non sale item price is --> ' + itemTotalPrice)
         });
 
         cy.get('@saleItemPrice').then(linkText => {
@@ -39,8 +39,13 @@ describe('Iterating over the elements', () => {
             for (i = 0; i < saleItemPrice.length; i++) {
                 totalSaleItemPrice += Number(saleItemPrice[i])
             }
+            itemsTotal += totalSaleItemPrice
             cy.log('Sale Item Prices Is --> ' + totalSaleItemPrice)
         })
+            .then(() => {
+                cy.log('item total is ' + itemsTotal)
+                expect(itemsTotal).to.equal(625.6)
+            })
     });
 
 });

@@ -10,7 +10,9 @@ module.exports = defineConfig({
     reporter:"mochawesome",
 
     "env" : {
-      url: "https://rahulshettyacademy.com/angularpractice/",
+      // url: "https://rahulshettyacademy.com/angularpractice/",
+      // url: "https://automationteststore.com/",
+
     },
 
 

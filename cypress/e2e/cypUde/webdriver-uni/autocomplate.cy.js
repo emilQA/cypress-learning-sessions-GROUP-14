@@ -13,6 +13,12 @@ describe('verify autocomplate dropdown lists via  webdriverUni', () => {
             text === givenSearch ? ($list.click(), cy.get('#submit-button').click().then(()=>{
                 cy.url().should("contain" , text)
             })) : '';
+            // OR
+            // if (text === givenSearch) {
+            //     $list.click();
+            //     cy.get('#submit-button')
+            //     cy.url().should("contain" , text)
+            // }
         })
     });
 

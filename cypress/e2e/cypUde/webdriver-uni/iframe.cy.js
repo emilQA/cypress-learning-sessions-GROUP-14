@@ -15,7 +15,6 @@ describe('Handling Iframe and modules', () => {
             cy.wrap(body).as('iframe');
         })
         cy.get('@iframe').find('#button-find-out-more').click()
-
         cy.get('@iframe').find('.modal-content').as('iframeModal')
         // way-1
         // cy.get('@iframeModal').find('.modal-body').then((modalObj)=>{
@@ -27,12 +26,7 @@ describe('Handling Iframe and modules', () => {
         cy.get('@iframeModal').find('.modal-body').should((expectedText) => {
             const text = expectedText.text();
             expect(text).to.include('Welcome to webdriveruniversity.com we sell a wide range of electrical goods such as laptops, game consoles, cameras.')
-
         })
-
-
-
-        // .contains('Welcome to webdriveruniversity.com we sell a wide range of electrical goods such as laptops, game consoles, cameras.')
     });
 
 

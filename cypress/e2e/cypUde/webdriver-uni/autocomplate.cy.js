@@ -10,15 +10,23 @@ describe('verify autocomplate dropdown lists via  webdriverUni', () => {
         cy.get('#myInputautocomplete-list > *').each(($list) => {
             const text = $list.text();
             const givenSearch = 'Avacado';
-            text === givenSearch ? ($list.click(), cy.get('#submit-button').click().then(()=>{
-                cy.url().should("contain" , text)
+            text === givenSearch ? ($list.click(), cy.get('#submit-button').click().then(() => {
+                cy.url().should("contain", text)
             })) : '';
-            // OR
-            // if (text === givenSearch) {
-            //     $list.click();
-            //     cy.get('#submit-button')
-            //     cy.url().should("contain" , text)
-            // }
+        }).then(() => {
+            let text = '';
+            cy.get('#myInput').type('g');
+            cy.get('#myInputautocomplete-list > *').each(list => {
+                const text = list.text();
+                const givenSearch = 'Ginger';
+                if (text === givenSearch) {
+                    list.click();
+                    cy.get('#submit-button').click();
+                    text === givenSearch
+                }
+            }).then(() => {
+                cy.url().should('contain', text)
+            })
         })
     });
 

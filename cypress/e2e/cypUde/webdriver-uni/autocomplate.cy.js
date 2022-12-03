@@ -10,26 +10,12 @@ describe('verify autocomplate dropdown lists via  webdriverUni', () => {
         cy.get('#myInputautocomplete-list > *').each(($list) => {
             const text = $list.text();
             const givenSearch = 'Avacado';
-            text === givenSearch ? ($list.click(), cy.get('#submit-button').click().then(() => {
+            // $list.click() --> is deprecated.Instead of click we should use following command -$list.trigger('click')
+            text === givenSearch ? ($list.trigger('click'), cy.get('#submit-button').click().then(() => {
                 cy.url().should("contain", text)
             })) : '';
-        }).then(() => {
-            let text = '';
-            cy.get('#myInput').type('g');
-            cy.get('#myInputautocomplete-list > *').each(list => {
-                const text = list.text();
-                const givenSearch = 'Ginger';
-                if (text === givenSearch) {
-                    list.click();
-                    cy.get('#submit-button').click();
-                    text === givenSearch
-                }
-            }).then(() => {
-                cy.url().should('contain', text)
-            })
         })
     });
-
 
 
 });

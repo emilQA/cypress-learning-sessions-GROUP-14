@@ -24,7 +24,7 @@ describe('Test contact us form via WebdriverUni', () => {
         cy.xpath('//div[@id = "contact_reply"]/h1').should('have.text' , 'Thank You for your Message!')
     });
 
-    xit('Should not be able to submit a successful submission via contact us form', () => {
+    it('Should not be able to submit a successful submission via contact us form', () => {
         cy.get('#contact-us').invoke('removeAttr' , 'target').click();
         // cy.get('#contact-us').click({force:true})
         cy.get('[name="first_name"]').type('Emil');

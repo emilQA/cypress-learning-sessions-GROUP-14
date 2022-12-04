@@ -27,7 +27,8 @@ describe('Interract with dropdown lists via webdriveruni', () => {
     
     it.only('DROP', () => {
         cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click();
-        cy.get('.dropdown-menu-lists').as('dropdownMenuLists');
+        cy.get('.dropdown-menu-lists').not('#fruit-selects').as('dropdownMenuLists');
+        cy.log('@dropdownMenuLists')
         cy.get('@dropdownMenuLists').each((el, i) => {
             if (cy.get('@dropdownMenuLists').should('have.id', `#dropdowm-menu-${i+1}`)) {
                 cy.get(`#dropdowm-menu-${i + 1} > option`).as('dropdownMenuListsOption');

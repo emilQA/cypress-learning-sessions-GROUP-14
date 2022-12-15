@@ -6,7 +6,7 @@ describe('Iterating over the elements', () => {
     })
     it('Displaying names of each element', () => {
         cy.servisAdı('Hair Care');
-        cy.bütünServislər();
+        cy.butunMallar();
     });
 
     it('Should add selected product to the card', () => {

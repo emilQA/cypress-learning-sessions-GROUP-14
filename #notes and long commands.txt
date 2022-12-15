@@ -1,0 +1,24 @@
+1)
+webdriver-uni-->4.contactUs.js ---> change first_name via config.js env variables thn run it 
+
+npx cypress run --browser electron --headles --spec ./cypress/e2e/cypUde/webdriver-uni/4-contactUs.cy.js --env first_name='zxcmnbasnbd"
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

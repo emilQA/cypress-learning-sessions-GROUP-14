@@ -4,15 +4,14 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      baseUrl:'http://www.webdriveruniversity.com/'
 
     },
     defaultCommandTimeout:8000,
     reporter:"mochawesome",
 
     "env" : {
-      // url: "https://rahulshettyacademy.com/angularpractice/",
-      // url: "https://automationteststore.com/",
-
+      first_name:'Qaqa'
     },
 
 

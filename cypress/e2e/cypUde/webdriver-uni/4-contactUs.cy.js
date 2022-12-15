@@ -7,14 +7,14 @@ describe('Test contact us form via WebdriverUni', () => {
             // this.data = data
             globalThis.data = data
         })
-        cy.visit('http://www.webdriveruniversity.com/');
+        cy.visit('/');
         cy.document().should("have.property", 'charset').and('eq', "UTF-8")
         cy.get('#contact-us').invoke('removeAttr', 'target').click();
 
     });
 
-    it('Should be able to submit a successful submission via contact us form', () => {
-        cy.webdriverUni_contactUs_submission(data.firstName, data.lastName, data.email, data.comment, '//div[@id = "contact_reply"]/h1', 'Thank You for your Message!')
+    it.only('Should be able to submit a successful submission via contact us form', () => {
+        cy.webdriverUni_contactUs_submission(Cypress.env('first_name'), data.lastName, data.email, data.comment, '//div[@id = "contact_reply"]/h1', 'Thank You for your Message!')
     });
 
 
@@ -23,7 +23,7 @@ describe('Test contact us form via WebdriverUni', () => {
     });
     
 
-    it.only('Should not be able to submit a successful submission via contact us form', () => {
+    it('Should not be able to submit a successful submission via contact us form', () => {
          cy.webdriverUni_contactUs_submission_fail('body', 'Error: all fields are required Error: Invalid email address')
 
     });

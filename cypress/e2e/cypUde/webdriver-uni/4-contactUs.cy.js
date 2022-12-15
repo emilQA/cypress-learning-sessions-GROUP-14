@@ -18,14 +18,13 @@ describe('Test contact us form via WebdriverUni', () => {
     });
 
 
-    it.only('Should not be able to submit a successful submission via contact us form', () => {
-        cy.webdriverUni_contactUs_submission(data.firstName, ' ', data.comment, data.comment, 'body', 'Error: Invalid email address')
-    });
-
     it('Should  be able to reset submission via contact us form', () => {
-       // cy.get('body').contains('Error: all fields are required');
-       //  cy.webdriverUni_contactUs_submission(data.firstName, ' ', ' ', data.comment, '//div[@id = "contact_reply"]/h1', 'Thank You for your Message!')
+        cy.webdriverUni_contactUs_submission_reset(data.firstName, data.lastName, data.comment, data.comment)
+    });
+    
 
+    it.only('Should not be able to submit a successful submission via contact us form', () => {
+         cy.webdriverUni_contactUs_submission_fail('body', 'Error: all fields are required Error: Invalid email address')
 
     });
 });

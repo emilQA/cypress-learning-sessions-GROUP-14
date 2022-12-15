@@ -22,7 +22,7 @@ Cypress.Commands.add('selectProduct', productName => {
     cy.get('.name > a').should('have.text' , productName);
 
 })
-
+// NORMAL SUBMISSION
 Cypress.Commands.add('webdriverUni_contactUs_submission' , (firstName ,
                                                                     lastName ,
                                                                     email,
@@ -34,24 +34,32 @@ Cypress.Commands.add('webdriverUni_contactUs_submission' , (firstName ,
     cy.get('[name="email"]').type(email);
     cy.get('textarea.feedback-input').type(comment);
     cy.get('[type="submit"]').click();
-    cy.xpath('//div[@id = "contact_reply"]/h1').should('have.text', 'Thank You for your Message!')
+    cy.xpath($selector).should('have.text', textToLocate)
 })
 
+// RESET SUBMISSION
 Cypress.Commands.add('webdriverUni_contactUs_submission_reset' , (firstName ,
                                                             lastName ,
                                                             email,
-                                                            comment ,
-                                                            $selector ,
-                                                            textToLocate)=>{
+                                                            comment )=>{
     cy.get('[name="first_name"]').should("have.attr", "placeholder", "First Name").type(firstName);
     cy.get('[name="last_name"]').should("have.attr", "placeholder", "Last Name").type(lastName);
     cy.get('[name="email"]').type(email);
     cy.get('textarea.feedback-input').type(comment);
     cy.get('[type="reset"]').click();
-    cy.xpath('//div[@id = "contact_reply"]/h1').should('have.text', 'Thank You for your Message!')
+    cy.get('[name="first_name"]').should('have.value' , '');
+    cy.get('[name="last_name"]').should('have.value' , '');
+    cy.get('[name="email"]').should('have.value' , '');
+    cy.get('textarea.feedback-input').should('have.value' , '');
 })
 
-
+// FAIL SUBMISSION
+Cypress.Commands.add('webdriverUni_contactUs_submission_fail' , (
+                                                            $selector ,
+                                                            textToLocate)=>{
+cy.get('[type="submit"]').click();
+cy.get($selector).contains(textToLocate)
+})
 
 
 //

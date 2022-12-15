@@ -2,9 +2,9 @@
 
 describe('Interract with dropdown lists via webdriveruni', () => {
     beforeEach(() => {
-        cy.visit('http://www.webdriveruniversity.com/');
+        cy.visit(Cypress.env('webSite_url'));
     });
-    it('Select the spesific values via select dropdown list', () => {
+    it.only('Select the spesific values via select dropdown list', () => {
         cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click();
         cy.get('#dropdowm-menu-1').as('mainDropdown1')
         cy.get('#dropdowm-menu-1 > option').as('dropdownLists1')
@@ -25,7 +25,7 @@ describe('Interract with dropdown lists via webdriveruni', () => {
 
 
     
-    it.only('DROP', () => {
+    it('DROP', () => {
         cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click();
         cy.get('.dropdown-menu-lists').not('#fruit-selects').as('dropdownMenuLists');
         cy.log('@dropdownMenuLists')

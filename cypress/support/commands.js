@@ -13,8 +13,8 @@ Cypress.Commands.add('butunMallar', () => {
 
 Cypress.Commands.add('addProductsToBasket', product => {
     cy.get(".fixed_wrapper .prdocutname").each(($el, i, $list) => {
-        if($el.text() === product ){
-                cy.get('.productcart').eq(i).click()
+        if ($el.text() === product) {
+            cy.get('.productcart').eq(i).click()
         }
     })
 });

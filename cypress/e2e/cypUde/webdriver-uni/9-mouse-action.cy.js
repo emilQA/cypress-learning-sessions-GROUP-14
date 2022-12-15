@@ -1,12 +1,17 @@
+import HomePage from "../../../support/page_objects/webDriverUni/HomePage";
 ///<reference types='cypress'/>
+const homePage = new HomePage()
 
 describe('Test mouse actions', () => {
     beforeEach(() => {
-        cy.visit('http://www.webdriveruniversity.com/');
+        homePage.visitHomePage()
     });
-    it('Scroll element into view and click on it', () => {
-        cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click();
+
+    it.only('Scroll element into view and click on it', () => {
+
+        homePage.clickOn_Actions_button()
     });
+
     it('I should be able drag and drop a draggable element', () => {
         cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click();
         cy.get('#draggable').trigger('mousedown', { which: 1 })
@@ -14,6 +19,7 @@ describe('Test mouse actions', () => {
         cy.get('#droppable>p>b').should('have.text', 'Dropped!');
 
     });
+
     it('I should be able to double mouse click event', () => {
         cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click();
         cy.get('#double-click').dblclick()

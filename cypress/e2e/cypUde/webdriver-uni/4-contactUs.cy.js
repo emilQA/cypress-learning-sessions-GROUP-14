@@ -35,17 +35,12 @@ describe('Test contact us form via WebdriverUni', () => {
     });
     
 
-    xit('Should not be able to submit a successful submission via contact us form', () => {
+    it('Should not be able to submit a successful submission via contact us form', () => {
          cy.webdriverUni_contactUs_submission_fail('body', 'Error: all fields are required Error: Invalid email address')
 
     });
 
 
-    //  WITH POM
-
-    // it('Should be able to submit a successful submission via contact us form', () => {
-    //     contactUs.normalSubmission(Cypress.env('first_name'), data.lastName, data.email, data.comment, '//div[@id = "contact_reply"]/h1', 'Thank You for your Message!')
-    // });
 
 });
 

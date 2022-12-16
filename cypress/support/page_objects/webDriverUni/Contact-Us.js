@@ -8,7 +8,7 @@ class ContactUs {
         submitButton: () => cy.get('[type="submit"]'),
         resetButton: () => cy.get('[type="reset"]'),
 
-        // elements for normalSubmission assert 
+        // elements for normalSubmission assertion
         selectSelector: () => cy.xpath('//div[@id = "contact_reply"]/h1'),
         textToLocate: () => 'Thank You for your Message!',
     }

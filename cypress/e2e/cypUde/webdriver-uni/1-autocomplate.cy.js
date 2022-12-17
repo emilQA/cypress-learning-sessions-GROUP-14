@@ -1,4 +1,5 @@
 ///<reference types='cypress'/>
+import AutoComplate from "../../../support/page_objects/webDriverUni/AutoComplate";
 
 describe('verify autocomplate dropdown lists via  webdriverUni', () => {
     beforeEach(() => {
@@ -16,7 +17,10 @@ describe('verify autocomplate dropdown lists via  webdriverUni', () => {
             })) : '';
         })
     });
-
+    it('select spesific product via autocomplate list with POM', () => {
+        cy.get('#autocomplete-textfield').invoke('removeAttr', 'target').click();
+       AutoComplate.autoComplateAction()
+    });
 
 });
 

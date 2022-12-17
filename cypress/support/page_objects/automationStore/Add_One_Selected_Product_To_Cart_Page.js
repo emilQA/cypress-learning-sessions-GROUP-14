@@ -1,10 +1,6 @@
-class HomePage {
-    accessHomePage() {
-        cy.visit('https://automationteststore.com/');
-    }
+class ProductAddToCardPage {
     elements = {
         listedProducts: () => cy.get(".fixed_wrapper .prdocutname"),
-        // productPage
         productTitle: () => cy.get('.bgnone'),
         addtoCartButton: () => cy.get('.cart'),
         productNameInBasket: () => cy.get('.name > a'),
@@ -28,4 +24,4 @@ class HomePage {
 
 
 
-module.exports = new HomePage;
+module.exports = new ProductAddToCardPage;

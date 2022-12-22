@@ -31,7 +31,6 @@ describe("JSON Object", () => {
         cy.log(exampleObject["key2"]); //Jones
         cy.log(exampleObject.key2) //Jones
 
-        cy.log(exampleObject.key2) //Jones
 
         cy.log(exampleArrayOfValues[0]) //Sophie
         cy.log(exampleArrayOfValues[1]) //Rose

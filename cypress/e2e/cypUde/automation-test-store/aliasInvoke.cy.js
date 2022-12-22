@@ -6,7 +6,8 @@ describe('Iterating over the elements', () => {
         cy.get('a[href*="product/category&path="]').contains("Hair Care").click();
         cy.get(".fixed_wrapper .prdocutname").eq(0).invoke('text').as('productThumbnail');
         cy.get('@productThumbnail').its('length').should('be.gt', 5);
-        cy.get('@productThumbnail').should('include', 'Seaweed Conditioner')
+        cy.get('@productThumbnail').should('include', 'Seaweed Conditioner');
+
     });
     it('Validate Product thumbnail', () => {
         cy.visit('https://automationteststore.com/');
@@ -45,6 +46,7 @@ describe('Iterating over the elements', () => {
             .then(() => {
                 cy.log('item total is ' + itemsTotal)
                 expect(itemsTotal).to.equal(625.6)
+
             })
     });
 

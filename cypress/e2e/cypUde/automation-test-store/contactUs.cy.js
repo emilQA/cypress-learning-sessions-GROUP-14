@@ -1,7 +1,6 @@
 /// <reference types="cypress"/>
 /// <reference types="cypress-xpath"/>
 
-
 describe('Test contact us form  via  Automation  test store', () => {
     before(()=>{ cy.fixture('example').as('user')})
     it('Should be able to submit a successful submission via contact us form', () => {
@@ -25,4 +24,3 @@ describe('Test contact us form  via  Automation  test store', () => {
 
 
 //(//li-icon[contains(@type , "chevron-down")])[3]
-
